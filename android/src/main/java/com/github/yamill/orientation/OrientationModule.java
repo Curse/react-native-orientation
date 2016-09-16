@@ -172,5 +172,14 @@ public class OrientationModule extends ReactContextBaseJavaModule implements Lif
         }
         catch (java.lang.IllegalArgumentException e) {
             FLog.e(ReactConstants.TAG, "receiver already unregistered", e);
-        }}
+        }
     }
+
+    // Required for RN 0.30+ modules than implement ActivityEventListener
+    public void onNewIntent(Intent intent) { }
+
+    // Required for RN 0.30+ modules than implement ActivityEventListener
+    public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) { }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) { }
+}
